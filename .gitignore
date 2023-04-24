@@ -1,0 +1,51 @@
+# Dependencies
+node_modules
+
+# Environment
+.env.local
+.env.*.local
+
+# SSL
+/ssl/*.key
+/ssl/*.crt
+
+# Build
+/build
+__pycache__
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Testing
+/coverage
+.eslintcache
+e2e/node_modules/
+e2e/.idea/
+e2e/cypress/screenshots/
+e2e/cypress/videos/
+
+# Other
+.DS_Store
+thumbs.db
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.tgz
+.node_repl_history
+.npm
+*.pid
+*.pid.lock
+*.seed
+.yalc

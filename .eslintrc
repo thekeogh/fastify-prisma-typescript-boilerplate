@@ -1,0 +1,86 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "ignorePatterns": [
+    "build/",
+    "deploy/",
+    "node_modules/"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": [
+      "./tsconfig.json"
+    ]
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "import"
+  ],
+  "rules": {
+    "semi": "off",
+    "quotes": "off",
+    "prettier/prettier": 0,
+    "object-curly-spacing": ["error", "always"],
+    "sort-imports": ["error", { "ignoreDeclarationSort": true }],
+    "max-len": ["error", { "code": 99999, "comments": 120 }], // force for comments only
+    "@typescript-eslint/semi": ["error", "always"],
+    "@typescript-eslint/quotes":  ["error", "double"],
+    "@typescript-eslint/indent": ["error", 2],
+    "@typescript-eslint/comma-dangle": ["error", "always-multiline"],
+    "@typescript-eslint/member-delimiter-style": ["error", {
+      "multiline": { "delimiter": "semi", "requireLast": true },
+      "singleline": { "delimiter": "semi", "requireLast": false }
+    }],
+    "import/extensions": ["error", "always"],
+    "import/no-duplicates": "error",
+    "import/no-extraneous-dependencies": "error",
+    "import/order": ["error", {
+      "pathGroups": [
+        {
+          "pattern": "@src/**",
+          "group": "unknown",
+          "position": "before"
+        },
+        // ------
+        {
+          "pattern": "@core",
+          "group": "unknown"
+        },
+        // ------
+        {
+          "pattern": "@resources",
+          "group": "unknown",
+          "position": "after"
+        }
+      ],
+      "pathGroupsExcludedImportTypes": ["builtin"],
+      "groups": [
+        "builtin",
+        "external",
+        "unknown",
+        "internal",
+        ["sibling", "parent"],
+        "index",
+        "object",
+        "type"
+      ],
+      "newlines-between": "always",
+      "alphabetize": {
+        "order": "asc"
+      }
+    }]
+  },
+  "overrides": [{
+    "files": ["tests/**"],
+    "rules": {
+      "@typescript-eslint/unbound-method": "off",
+      "@typescript-eslint/no-unused-vars": "off",
+      "@typescript-eslint/ban-ts-comment": ["error", {
+        "ts-ignore": "allow-with-description"
+      }]
+    }
+  }]
+}

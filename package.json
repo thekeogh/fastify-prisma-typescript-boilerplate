@@ -1,0 +1,60 @@
+{
+  "name": "fastify-prisma-typescript-boilerplate",
+  "description": "Starter kit for building RESTful APIs using Fastify and Prisma in a TypeScript environment for Node.js",
+  "type": "module",
+  "engines": {
+    "node": "^18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thekeogh/fastify-prisma-typescript-boilerplate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/thekeogh/fastify-prisma-typescript-boilerplate/issues"
+  },
+  "homepage": "https://github.com/thekeogh/fastify-prisma-typescript-boilerplate#readme",
+  "scripts": {
+    "start": "NODE_ENV=development dotenv-flow -- node build/index.js",
+    "dev": "NODE_ENV=development dotenv-flow -- tsx watch --ignore ./build --ignore ./ssl --no-cache src",
+    "migrate": "NODE_ENV=development dotenv-flow -- npx prisma migrate deploy",
+    "migrate:create": "NODE_ENV=development dotenv-flow -- npx prisma migrate dev",
+    "migrate:reset": "NODE_ENV=development dotenv-flow -- npx prisma migrate reset",
+    "generate": "NODE_ENV=development dotenv-flow -- npx prisma generate",
+    "build": "rimraf ./build && tsc -p tsconfig.build.json && tsc-alias -p tsconfig.build.json",
+    "lint": "eslint --ext=ts src tests --no-error-on-unmatched-pattern --quiet || true",
+    "lint:fix": "eslint --ext=ts src tests --no-error-on-unmatched-pattern --quiet --fix || true"
+  },
+  "dependencies": {
+    "@fastify/autoload": "^5.7.1",
+    "@fastify/cors": "^8.2.1",
+    "@fastify/helmet": "^10.1.0",
+    "@fastify/sensible": "^5.2.0",
+    "@fastify/swagger": "^8.3.1",
+    "@fastify/swagger-ui": "^1.8.0",
+    "@fastify/under-pressure": "^8.2.0",
+    "@prisma/client": "^4.13.0",
+    "fastify": "^4.15.0",
+    "fastify-plugin": "^4.5.0",
+    "pino": "^8.11.0",
+    "prisma": "^4.13.0"
+  },
+  "devDependencies": {
+    "@fastify/ajv-compiler": "^3.5.0",
+    "@types/dotenv-flow": "^3.2.0",
+    "@types/node": "^18.16.0",
+    "@typescript-eslint/eslint-plugin": "^5.59.0",
+    "@typescript-eslint/parser": "^5.59.0",
+    "ajv": "^8.12.0",
+    "dotenv-flow": "^3.2.0",
+    "dotenv-flow-cli": "^1.0.0",
+    "eslint": "^8.39.0",
+    "eslint-plugin-import": "^2.27.5",
+    "json-schema": "^0.4.0",
+    "pino-pretty": "^10.0.0",
+    "rimraf": "^5.0.0",
+    "sleep-promise": "^9.1.0",
+    "tsc-alias": "^1.8.5",
+    "tsx": "^3.12.6",
+    "typescript": "^5.0.4"
+  }
+}

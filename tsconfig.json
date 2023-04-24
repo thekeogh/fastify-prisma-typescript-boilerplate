@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "build",
+    "module": "ESNext",
+    "target": "ESNext",
+    "lib": ["ESNext", "DOM"],
+    "moduleResolution": "node",
+    "strictNullChecks": true,
+    "declaration": false,
+    "importHelpers": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "incremental": true,
+    "esModuleInterop": true,
+    "sourceMap": false,
+    "allowSyntheticDefaultImports": true,
+    "useUnknownInCatchVariables": false,
+    "typeRoots": [
+      "node_modules/@types",
+      "types/*.d.ts",
+      "src/**/*.d.ts"
+    ],
+    "paths": {
+      "@src/*": ["src/*"],
+      "@core": ["src/core/index.ts"],
+      "@resources": ["src/resources/index.ts"]
+    }
+  },
+  "include": [
+    "types/*.d.ts",
+    "src/**/*",
+    "tests/**/*"
+  ]
+}
