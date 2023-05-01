@@ -1,6 +1,6 @@
 import { FastifyInstance } from "fastify";
 
-import { controllers, schemas } from "@src/resources/users/index.js";
+import { controllers, schemas } from "@resources/users/index.js";
 
 export default async (fastify: FastifyInstance) => {
 
@@ -10,7 +10,7 @@ export default async (fastify: FastifyInstance) => {
    * @function
    * @name POST /users
    */
-  fastify.post<{ Body: Api.Resources.Users.Create.Body }>("/users", schemas.create, async function (request, reply) {
-    return new controllers.Create(request.body, reply).handle();
+  fastify.post<Api.Schemas.Users.Create.Request>("/users", schemas.create, async function (request, reply) {
+    return new controllers.Create(request, reply).handle();
   });
 };

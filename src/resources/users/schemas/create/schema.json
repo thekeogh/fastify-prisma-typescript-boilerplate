@@ -1,0 +1,35 @@
+{
+  "schema": {
+    "description": "Create a user.",
+    "body": {
+      "type": "object",
+      "properties": {
+        "email": { "type": "string", "format": "email" },
+        "name": { "type": "string" }
+      },
+      "required": ["email", "name"]
+    },
+    "response": {
+      "201": {
+        "type": "object",
+        "description": "OK.",
+        "properties": {
+          "id": { "type": "string" },
+          "email": { "type": "string", "format": "email" },
+          "name": { "type": "string" },
+          "createdAt": { "type": "string", "format": "date" },
+          "updatedAt": { "type": "string", "format": "date", "nullable": true }
+        }
+      },
+      "409": {
+        "type": "object",
+        "description": "Email address already exists.",
+        "properties": {
+          "statusCode": { "type": "number" },
+          "error": { "type": "string" },
+          "message": { "type": "string" }
+        }
+      }
+    }
+  }
+}

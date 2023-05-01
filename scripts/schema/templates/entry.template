@@ -6,4 +6,4 @@
  * @cli npm run generate:schema
  */
 
-export * from "./create/index.js";
+{{ children }}

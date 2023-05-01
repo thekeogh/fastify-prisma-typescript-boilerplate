@@ -1,6 +1,6 @@
 import { Prisma, PrismaClient, User } from "@prisma/client";
 
-export class UserRepository {
+class UserRepository {
   private prisma: PrismaClient;
 
   /**
@@ -29,3 +29,5 @@ export class UserRepository {
   }
   
 }
+
+export const userRepository = new UserRepository();

@@ -1,7 +1,7 @@
 import { FastifyInstance, FastifyPluginAsync } from "fastify";
 import fp from "fastify-plugin";
 
-import { core } from "@core";
+import * as core from "@core/index.js";
 
 /**
  * Instruct TypeScript that this value exists on the Fastify instance.

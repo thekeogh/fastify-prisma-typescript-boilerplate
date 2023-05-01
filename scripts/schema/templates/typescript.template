@@ -1,0 +1,15 @@
+/**
+ * The contents of this file were created automatically by `npm run generate:schema` with the help of
+ * json-schema-to-typescript. Do not make any manual modifications to this file. Instead, update the source JSON Schema
+ * files and rerun `npm run generate:schema` to regenerate the contents of this file.
+ *
+ * @cli npm run generate:schema
+ */
+
+declare namespace Api {
+  namespace Schemas {
+
+    {{ children }}
+    
+  }
+}

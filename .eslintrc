@@ -30,6 +30,8 @@
     "@typescript-eslint/quotes":  ["error", "double"],
     "@typescript-eslint/indent": ["error", 2],
     "@typescript-eslint/comma-dangle": ["error", "always-multiline"],
+    "@typescript-eslint/no-namespace": "off",
+    "@typescript-eslint/no-empty-interface": "off",
     "@typescript-eslint/member-delimiter-style": ["error", {
       "multiline": { "delimiter": "semi", "requireLast": true },
       "singleline": { "delimiter": "semi", "requireLast": false }
@@ -46,12 +48,12 @@
         },
         // ------
         {
-          "pattern": "@core",
+          "pattern": "@core/**",
           "group": "unknown"
         },
         // ------
         {
-          "pattern": "@resources",
+          "pattern": "@resources/**",
           "group": "unknown",
           "position": "after"
         }

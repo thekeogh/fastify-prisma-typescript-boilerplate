@@ -6,16 +6,19 @@
     "target": "ESNext",
     "lib": ["ESNext", "DOM"],
     "moduleResolution": "node",
+    "strict": true,
+    "noStrictGenericChecks": false,
     "strictNullChecks": true,
     "declaration": false,
     "importHelpers": true,
-    "resolveJsonModule": true,
+    "resolveJsonModule": false, // prevent, as experimental in ESM
     "skipLibCheck": true,
     "incremental": true,
     "esModuleInterop": true,
     "sourceMap": false,
     "allowSyntheticDefaultImports": true,
     "useUnknownInCatchVariables": false,
+    "types": ["vitest/globals"],
     "typeRoots": [
       "node_modules/@types",
       "types/*.d.ts",
@@ -23,11 +26,12 @@
     ],
     "paths": {
       "@src/*": ["src/*"],
-      "@core": ["src/core/index.ts"],
-      "@resources": ["src/resources/index.ts"]
+      "@core/*": ["src/core/*"],
+      "@resources/*": ["src/resources/*"]
     }
   },
   "include": [
+    "scripts/**/*",
     "types/*.d.ts",
     "src/**/*",
     "tests/**/*"

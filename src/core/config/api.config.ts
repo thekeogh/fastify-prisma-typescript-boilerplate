@@ -24,14 +24,14 @@ export const api: Api.Core.Config.Api = {
 
   // Swagger
   swagger: {
-    title: "Billing Service Sandbox",
-    description: "ScreenCloud billing service that is in an experimental phase, intended for trying out a new technology stack",
+    title: "Fastify Prisma TypeScript Boilerplate",
+    description: "Starter kit for building RESTful APIs using Fastify and Prisma in a TypeScript environment for Node.js.",
     url: process.env.SWAGGER_URL,
   },
 
   // API
   api: {
-    prefix: "v2",
+    prefix: "v1",
   },
 
 };

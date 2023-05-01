@@ -3,3 +3,5 @@
 build/*
 # js, no thanks
 **/*.js
+# vite
+vitest.config.ts

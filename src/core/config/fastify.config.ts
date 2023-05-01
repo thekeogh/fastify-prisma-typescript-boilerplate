@@ -12,7 +12,7 @@ import { FastifySwaggerUiOptions } from "@fastify/swagger-ui";
 import { UnderPressureOptions } from "@fastify/under-pressure";
 import { LoggerOptions } from "pino";
 
-import { api } from "@src/core/config/index.js";
+import { api } from "@core/config/index.js";
 
 /**
  * Configuration options for the Ajv JSON schema validator.
@@ -31,7 +31,6 @@ const ajv: { customOptions: AjvOptions } = {
  * Configuration options for CORS (Cross-Origin Resource Sharing).
  */
 const cors: FastifyCorsOptions = {
-  origin: /(\.next\.sc|\.screencloud\.com|\.screen\.cloud)(:[0-9]+)?$/,
   preflightContinue: false,
   credentials: true,
 };
@@ -73,6 +72,7 @@ if ((api.environment.env === "development" && process.env.SSL_KEY && process.env
  * @see {@link https://github.com/pinojs/pino Pino}
  */
 const logger: LoggerOptions = {
+  enabled: api.environment.env !== "test",
   level: api.logging.level,
   transport: api.environment.env === "development" ? {
     target: "pino-pretty",
@@ -97,12 +97,13 @@ const logger: LoggerOptions = {
  * autoload any other plugins.
  */
 const routes: AutoloadPluginOptions = {
-  dir: join(dirname(fileURLToPath(import.meta.url)), "../..", "resources"),
+  dir: join(dirname(fileURLToPath(import.meta.url)), "../../"),
   dirNameRoutePrefix: false,
   matchFilter: (path) => path.includes(".routes."),
   indexPattern: /.*routes(\.ts|\.js|\.cjs|\.mjs)$/,
   routeParams: false,
   forceESM: true,
+  maxDepth: 3,
   options: { prefix: api.api.prefix },
 };
 
@@ -153,7 +154,7 @@ const underPressure: UnderPressureOptions = {
     routeOpts: {
       logLevel: api.logging.level,
     },
-    url: "/health-check",
+    url: "/healthcheck",
   },
   healthCheck: async () => {
     // TODO: Do other health checks here, e.g. DB connection

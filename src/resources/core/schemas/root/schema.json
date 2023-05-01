@@ -1,0 +1,6 @@
+{
+  "schema": {
+    "description": "Nothing to see here.",
+    "response": { "204": { "type": "null", "description": "No Content." } }
+  }
+}

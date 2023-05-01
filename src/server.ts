@@ -7,22 +7,22 @@ import swaggerUi from "@fastify/swagger-ui";
 import pressure from "@fastify/under-pressure";
 import Fastify from "fastify";
 
-import { core } from "@core";
+import { config, plugins } from "@core/index.js";
 
 // Initialise
-const { ajv, logger, https } = core.config.fastify;
+const { ajv, logger, https } = config.fastify;
 const fastify = Fastify({ ignoreTrailingSlash: true, ajv, logger, https });
 
 // Plugins
-await fastify.register(core.plugins.config);
+await fastify.register(plugins.config);
 await fastify.register(sensible);
-await fastify.register(cors, core.config.fastify.cors);
-await fastify.register(helmet, core.config.fastify.helmet);
-await fastify.register(pressure, core.config.fastify.underPressure);
-await fastify.register(swagger, core.config.fastify.swagger);
-await fastify.register(swaggerUi, core.config.fastify.swaggerUi);
+await fastify.register(cors, config.fastify.cors);
+await fastify.register(helmet, config.fastify.helmet);
+await fastify.register(pressure, config.fastify.underPressure);
+await fastify.register(swagger, config.fastify.swagger);
+await fastify.register(swaggerUi, config.fastify.swaggerUi);
 
 // Routes
-await fastify.register(autoload, core.config.fastify.routes);
+await fastify.register(autoload, config.fastify.routes);
 
 export { fastify };

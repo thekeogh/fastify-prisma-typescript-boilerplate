@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "description": "OK.",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "name": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date",
+      "nullable": true
+    }
+  }
+}
