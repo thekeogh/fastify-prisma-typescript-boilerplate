@@ -1,21 +1,22 @@
 import { FastifyInstance, FastifyPluginAsync } from "fastify";
 import fp from "fastify-plugin";
 
-import { config as _config } from "@core/index.js";
+import * as _resources from "@resources/index.js";
 
 /**
  * Instruct TypeScript that this value exists on the Fastify instance.
  */
+type Resources = typeof _resources;
 declare module "fastify" {
   interface FastifyInstance {
-    config: Api.Core.Config.Api;
+    resources: Resources;
   }
 }
 
 /**
  * Decorate Fastify with the plugin.
  */
-export const config: FastifyPluginAsync = fp(async (fastify: FastifyInstance) => {
-  fastify.decorate<Api.Core.Config.Api>("config", _config.api);
+export const resources: FastifyPluginAsync = fp(async (fastify: FastifyInstance) => {
+  fastify.decorate<Resources>("resources", _resources);
 });
 

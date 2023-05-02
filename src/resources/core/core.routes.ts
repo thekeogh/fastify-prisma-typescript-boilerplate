@@ -1,7 +1,5 @@
 import { FastifyInstance } from "fastify";
 
-import { schemas } from "@resources/core/index.js";
-
 export default async (fastify: FastifyInstance) => {
 
   /**
@@ -10,7 +8,7 @@ export default async (fastify: FastifyInstance) => {
    * @function
    * @name GET /
    */
-  fastify.get("/", schemas.root, async function (request, reply) {
+  fastify.get("/", fastify.resources.core.schemas.root, async function (request, reply) {
     return reply.code(204).send();
   });
 };
